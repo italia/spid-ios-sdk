@@ -7,19 +7,10 @@
 //
 
 import Foundation
-
-//
-//    RootClass.swift
-//
-//    Create by Matteo Polito on 8/10/2017
-//    Copyright © 2017. All rights reserved.
-//    Model file generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
-
-import Foundation
 import ObjectMapper
 
 
-class SPIDUserResponse : Mappable {
+class SPIDUserResponse : NSObject, Mappable {
     
     var codiceFiscale : String?
     var codiceIdentificativo : String?
@@ -39,7 +30,7 @@ class SPIDUserResponse : Mappable {
     var ragioneSociale : String?
     var sesso : String?
     
-    init() {
+    override init() {
         
     }
     

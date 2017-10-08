@@ -7,20 +7,18 @@
 //
 import Foundation
 import UIKit
-
+import ObjectMapper
 
 @objc
 protocol UISPIDButtonDelegate {
-    @objc optional func didPressSpidButton()
+    @objc
+    optional func didReceivedResponse(userResponse: NSObject?)
 }
 
 class UISPIDButton: UIButton {
     
     @IBOutlet
     var masterVC: UIViewController?
-    
-    @IBOutlet
-    var spidDelegate: UISPIDButtonDelegate?
     
     @IBInspectable
     var baseUrl: String?
@@ -47,15 +45,9 @@ class UISPIDButton: UIButton {
     }
     @objc
     fileprivate func buttonClicked(sender: UIButton) {
-        spidDelegate?.didPressSpidButton?()
-        
         if let baseUrl = baseUrl {
             let spidOperation = SPIDOperation(baseUrl: baseUrl, baseVC: masterVC)
-            spidOperation.doElencoProviders();
-            //var response = spidOperation.doElencoProviders()
-            
-            //response
-            
+            spidOperation.doElencoProviders();            
         }
     }
 }

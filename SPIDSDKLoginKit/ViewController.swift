@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class ViewController: UIViewController, UISPIDButtonDelegate {
     
+    @IBOutlet weak var responseView: UIView!
+    @IBOutlet weak var responseTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //var x = SPIDService();
         
+        responseView.isHidden = true;
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,9 +25,12 @@ class ViewController: UIViewController, UISPIDButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func didPressSpidButton() {
-        
-        
+    //MARK: Implementation UISPIDButtonDelegate
+    func didReceivedResponse(userResponse: NSObject?){
+        if var user = userResponse as? SPIDUserResponse {
+            responseView.isHidden = false;
+            responseTextView.text = user.toJSONString(prettyPrint: true)
+        }
     }
 }
 

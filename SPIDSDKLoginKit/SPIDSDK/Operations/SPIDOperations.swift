@@ -73,9 +73,14 @@ class SPIDOperation : NSObject, SwiftWebVCDelegate  {
             
             Loading.hideLoading()
             
-            let res = String(format: "%@ %@", L10n.loginOkBody,response.result.value?.toJSON() ?? "");
+            //let res = String(format: "%@ %@", L10n.loginOkBody,response.result.value?.toJSON() ?? "");
             
-            self.webVC?.alert(message: res, title: L10n.loginOkTitle, okHandler: {
+            self.webVC?.alert(message: L10n.loginOkBody, title: L10n.loginOkTitle, okHandler: {
+                
+                if let vc = self.baseVC as? UISPIDButtonDelegate {
+                    vc.didReceivedResponse?(userResponse: response.result.value as? NSObject);
+                }
+                
                 self.webVC.dismiss(animated: true, completion: nil)
             })
             
@@ -136,9 +141,7 @@ class SPIDOperation : NSObject, SwiftWebVCDelegate  {
     }
     func didFinishLoading(url: String?, body: String?, success: Bool) {
         if url == SPIDConstants.POSTE_OK_URL {
-            
             doGetDettaglioUtente();
-            
         }
     }
     
