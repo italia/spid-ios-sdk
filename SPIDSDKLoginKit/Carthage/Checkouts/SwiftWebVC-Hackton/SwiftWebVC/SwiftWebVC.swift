@@ -10,7 +10,7 @@ import WebKit
 
 public protocol SwiftWebVCDelegate: class {
     func didStartLoading()
-    func didFinishLoading(url: String?, success: Bool)
+    func didFinishLoading(url: String?, body: String?, success: Bool)
 }
 
 public class SwiftWebVC: UIViewController {
@@ -297,18 +297,38 @@ extension SwiftWebVC: WKNavigationDelegate {
     }
     
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.delegate?.didFinishLoading(url: webView.url?.relativeString, success: true)
+        
+        webView.evaluateJavaScript("document.documentElement.outerHTML", completionHandler: {(result, error) in
+            
+            self.delegate?.didFinishLoading(url: webView.url?.relativeString, body: result as? String, success: true)
+            
+        })
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
-        webView.evaluateJavaScript("document.title", completionHandler: {(response, error) in
-            self.navBarTitle.text = response as! String?
-            self.navBarTitle.sizeToFit()
-            self.updateToolbarItems()
-        })
+//        web.evaluateJavaScript("document.getElementsByClassName('excerpt')[0].innerText") {(result, error) in
+//            guard error == nil {
+//                print(error!)
+//                return
+//            }
+//
+//            print(String(describing: result))
+//        }
+//        self.delegate?.didFinishLoading(url: webView.url?.relativeString, success: true)
+//        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//
+//        webView.evaluateJavaScript("document.title", completionHandler: {(response, error) in
+//            self.navBarTitle.text = response as! String?
+//            self.navBarTitle.sizeToFit()
+//            self.updateToolbarItems()
+//        })
     }
     
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        self.delegate?.didFinishLoading(url: webView.url?.relativeString, success: false)
+        self.delegate?.didFinishLoading(url: webView.url?.relativeString, body: nil, success: false)
+        webView.evaluateJavaScript("document.documentElement.outerHTML", completionHandler: {(result, error) in
+            self.delegate?.didFinishLoading(url: webView.url?.relativeString, body: result as? String, success: true)
+        })
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         updateToolbarItems()
     }

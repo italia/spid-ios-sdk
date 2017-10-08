@@ -19,13 +19,22 @@ public class SwiftModalWebVC: UINavigationController {
     
     //public var webViewDelegate: SwiftWebVCDelegate?
     
-    public convenience init(urlString: String, webViewDelegate: SwiftWebVCDelegate?) {
+    public convenience init(urlString: String, bodyString: String? = nil, webViewDelegate: SwiftWebVCDelegate?) {
         var urlString = urlString
         if !urlString.hasPrefix("https://") && !urlString.hasPrefix("http://") {
             urlString = "https://"+urlString
         }
         
-        self.init(request: URLRequest(url: URL(string: urlString)!), webViewDelegate: webViewDelegate)
+        //need to use MutableRequest to set HTTPMethod to Post.
+        let url = NSURL(string: urlString)
+        let request = NSMutableURLRequest(url: url as! URL)
+        
+        if let body = bodyString {
+            request.httpMethod = "POST"
+            request.httpBody = body.data(using: String.Encoding.utf8)
+        }
+        
+        self.init(request: request as URLRequest, webViewDelegate: webViewDelegate)
     }
     public init(request: URLRequest, webViewDelegate: SwiftWebVCDelegate?, theme: SwiftModalWebVCTheme = .lightBlue, dismissButtonStyle: SwiftModalWebVCDismissButtonStyle = .arrow) {
         let webViewController = SwiftWebVC(request: request, delegate: webViewDelegate)

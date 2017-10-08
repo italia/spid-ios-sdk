@@ -16,7 +16,7 @@ import SafariServices
 import WebKit
 import SwiftWebVC
 
-class SPIDOperation : NSObject  {
+class SPIDOperation : NSObject, SwiftWebVCDelegate  {
     
     fileprivate var baseUrl: String
     fileprivate var baseVC: UIViewController?
@@ -109,14 +109,14 @@ class SPIDOperation : NSObject  {
     }
 
     //MARK: Esegue l'apertura del browser per la visualizzazione dei vari link
-    fileprivate func openBrowser(url: String) {
+    fileprivate func openBrowser(url: String, body: String? = nil) {
         self.webVC = SwiftModalWebVC(urlString: url, webViewDelegate: self as? SwiftWebVCDelegate)
         self.baseVC?.present(webVC, animated: true, completion: nil)
     }
     //MARK:SwiftWebVCDelegate
     func didStartLoading() {
     }
-    func didFinishLoading(url: String?, success: Bool) {
+    func didFinishLoading(url: String?, body: String?, success: Bool) {
         if url == SPIDConstants.POSTE_OK_URL {
             self.webVC?.alert(message: L10n.loginOkBody, title: L10n.loginOkTitle, okHandler: {
                 self.webVC.dismiss(animated: true, completion: nil)
