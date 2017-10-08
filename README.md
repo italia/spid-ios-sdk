@@ -93,5 +93,5 @@ La decodifica della risposta è stata eseguita in modalità mock, questi sono i 
 # To do
 
 1) Integrazione con i servizi reali
-2) Chiamata POST verso l'url dell'identity provider
-3) Parsing della risposta (20X o 50X) ottenuta dopo aver eseguito la login
+2) Chiamata POST verso l'url dell'identity provider (attualmente gestita con servizi MOCK)
+3) Parsing della risposta (20X o 50X) ottenuta dopo aver eseguito la login (attualmente gestita con servizi MOCK)
