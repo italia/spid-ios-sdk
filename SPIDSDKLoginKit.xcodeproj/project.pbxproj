@@ -12,6 +12,7 @@
 		9524B5FC1F89661300CF745D /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524B5FB1F89661300CF745D /* L10n.swift */; };
 		9524B6231F89929300CF745D /* SPIDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524B6221F89929300CF745D /* SPIDConstants.swift */; };
 		9524B6241F89E64000CF745D /* SwiftWebVC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9556F1741F8904900096EBC2 /* SwiftWebVC.framework */; };
+		9524B6261F8A1B5700CF745D /* SPIDUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524B6251F8A1B5700CF745D /* SPIDUserResponse.swift */; };
 		9527091F1F8906F200A9F5E1 /* XLActionController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9556F1771F8904900096EBC2 /* XLActionController.framework */; };
 		952709221F8906F200A9F5E1 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9556F1751F8904900096EBC2 /* PKHUD.framework */; };
 		952709231F8906F200A9F5E1 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BE3F831F89065100B2616C /* AlamofireObjectMapper.framework */; };
@@ -61,6 +62,7 @@
 		9524B5F91F89643C00CF745D /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		9524B5FB1F89661300CF745D /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		9524B6221F89929300CF745D /* SPIDConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPIDConstants.swift; sourceTree = "<group>"; };
+		9524B6251F8A1B5700CF745D /* SPIDUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPIDUserResponse.swift; sourceTree = "<group>"; };
 		954AC8B81F8911C200CC40B0 /* SPIDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPIDService.swift; sourceTree = "<group>"; };
 		954AC8BA1F8911EE00CC40B0 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		954AC8BC1F89129800CC40B0 /* UISPIDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISPIDButton.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				954AC8C11F89135300CC40B0 /* ProvidersResponse.swift */,
 				954AC8DD1F893DA900CC40B0 /* AuthSpidResponse.swift */,
+				9524B6251F8A1B5700CF745D /* SPIDUserResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				9556F1391F88DD130096EBC2 /* AppDelegate.swift in Sources */,
 				954AC8BD1F89129800CC40B0 /* UISPIDButton.swift in Sources */,
 				9524B6231F89929300CF745D /* SPIDConstants.swift in Sources */,
+				9524B6261F8A1B5700CF745D /* SPIDUserResponse.swift in Sources */,
 				9524B5FA1F89643C00CF745D /* Alert.swift in Sources */,
 				9524B5F71F8948FD00CF745D /* ProvidersImageDecoder.swift in Sources */,
 			);

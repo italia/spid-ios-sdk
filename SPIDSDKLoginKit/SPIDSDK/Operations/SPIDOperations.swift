@@ -66,6 +66,24 @@ class SPIDOperation : NSObject, SwiftWebVCDelegate  {
             self.baseVC?.alert(message: L10n.attenzioneServiceBody, okHandler: {})
         })
     }
+    public func doGetDettaglioUtente() {
+        Loading.showLoading()
+        
+        spidService.getUserSpid(completionHandler: { (response: DataResponse<SPIDUserResponse>) in
+            
+            Loading.hideLoading()
+            
+            var res = String(format: "%@ %@", L10n.loginOkBody,response.result.value?.toJSON() ?? "");
+            
+            self.webVC?.alert(message: res, title: L10n.loginOkTitle, okHandler: {
+                self.webVC.dismiss(animated: true, completion: nil)
+            })
+            
+        }, errorHandler: {
+            Loading.hideLoading()
+            self.baseVC?.alert(message: L10n.attenzioneServiceBody, okHandler: {})
+        })
+    }
     
     fileprivate func doShowActions(providers: ProvidersResponse){
         let actionController = SPIDActionController()
@@ -110,7 +128,7 @@ class SPIDOperation : NSObject, SwiftWebVCDelegate  {
 
     //MARK: Esegue l'apertura del browser per la visualizzazione dei vari link
     fileprivate func openBrowser(url: String, body: String? = nil) {
-        self.webVC = SwiftModalWebVC(urlString: url, webViewDelegate: self as? SwiftWebVCDelegate)
+        self.webVC = SwiftModalWebVC(urlString: url, webViewDelegate: self)
         self.baseVC?.present(webVC, animated: true, completion: nil)
     }
     //MARK:SwiftWebVCDelegate
@@ -118,9 +136,9 @@ class SPIDOperation : NSObject, SwiftWebVCDelegate  {
     }
     func didFinishLoading(url: String?, body: String?, success: Bool) {
         if url == SPIDConstants.POSTE_OK_URL {
-            self.webVC?.alert(message: L10n.loginOkBody, title: L10n.loginOkTitle, okHandler: {
-                self.webVC.dismiss(animated: true, completion: nil)
-            })
+            
+            doGetDettaglioUtente();
+            
         }
     }
     

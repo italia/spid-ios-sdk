@@ -48,4 +48,19 @@ class SPIDService {
                 }
             }
     }
+    func getUserSpid(completionHandler: @escaping (DataResponse<SPIDUserResponse>) -> Void, errorHandler: @escaping () -> Void) {
+        let URL = String(format:"%@%@", baseUrl, ServicesUrlConstants.USER_SPID_MOCK_PATH)
+        Alamofire
+            .request(URL)
+            .responseObject { (response: DataResponse<SPIDUserResponse>) in
+                switch response.result {
+                case .success:
+                    completionHandler(response);
+                    break;
+                case .failure:
+                    errorHandler();
+                    break;
+                }
+        }
+    }
 }
