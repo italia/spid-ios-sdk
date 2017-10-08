@@ -16,7 +16,7 @@ Per la generazione degli enum corrispondenti alle immagine, stringhe localizzate
 Tutti i file della libreria sono contenuti nella directory SPIDSDK.
 Per la gestione del pulsante e sua configurazione è necessario utilizzare la classe UISPIDButton:
 
-![Configurazione Interface builder](https://image.ibb.co/dsgLiw/UISPIDButton.png)
+![Configurazione Interface builder](https://github.com/mapo80/spid-ios-sdk-screenshot/blob/master/UISPIDButton.png?raw=true)
 
 # Servizi REST
 L'app richiama due servizi REST:
