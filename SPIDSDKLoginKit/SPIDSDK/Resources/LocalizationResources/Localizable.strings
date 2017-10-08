@@ -10,3 +10,5 @@
 "ATTENZIONE_TITLE" = "Attenzione";
 "ATTENZIONE_SERVICE_BODY" = "Temporanei problemi di collegamento";
 "ALERT_OK_TITLE" = "OK";
+"LOGIN_OK_TITLE" = "Login";
+"LOGIN_OK_BODY" = "Login avvenuta correttamente";

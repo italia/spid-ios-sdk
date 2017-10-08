@@ -14,6 +14,10 @@ enum L10n {
   static let attenzioneServiceBody = L10n.tr("Localizable", "ATTENZIONE_SERVICE_BODY")
   /// Attenzione
   static let attenzioneTitle = L10n.tr("Localizable", "ATTENZIONE_TITLE")
+  /// Login avvenuta correttamente
+  static let loginOkBody = L10n.tr("Localizable", "LOGIN_OK_BODY")
+  /// Login
+  static let loginOkTitle = L10n.tr("Localizable", "LOGIN_OK_TITLE")
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 

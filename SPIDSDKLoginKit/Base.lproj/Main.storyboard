@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="67" id="nIa-8W-I2Q"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="baseUrl" value="http://23.101.73.129:8080"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="baseUrl" value="http://www.mocky.io/v2"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="masterVC" destination="BYZ-38-t0r" id="eu4-fh-185"/>

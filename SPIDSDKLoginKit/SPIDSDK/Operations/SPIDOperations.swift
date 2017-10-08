@@ -117,7 +117,7 @@ class SPIDOperation : NSObject, SwiftWebVCDelegate/*, SwiftWebVCDelegate, UIWebV
     }
     func didFinishLoading(url: String?, success: Bool) {
         if url == SPIDConstants.POSTE_OK_URL {
-            self.webVC?.alert(message: "Login avvenuta con successo", title: "", okHandler: {
+            self.webVC?.alert(message: L10n.loginOkBody, title: L10n.loginOkTitle, okHandler: {
                 self.webVC.dismiss(animated: true, completion: nil)
             })
         }
