@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import WebKit
 
 public class SwiftModalWebVC: UINavigationController {
     
@@ -18,35 +17,18 @@ public class SwiftModalWebVC: UINavigationController {
         case arrow, cross
     }
     
-    public weak var webViewDelegate: SwiftWebVCDelegate? = nil
-    
-    public weak var webView: WKWebView? = nil
+    //public var webViewDelegate: SwiftWebVCDelegate?
     
     public convenience init(urlString: String, webViewDelegate: SwiftWebVCDelegate?) {
         var urlString = urlString
         if !urlString.hasPrefix("https://") && !urlString.hasPrefix("http://") {
             urlString = "https://"+urlString
         }
-        self.init(pageURL: URL(string: urlString)!)
-        self.webViewDelegate = webViewDelegate
+        
+        self.init(request: URLRequest(url: URL(string: urlString)!), webViewDelegate: webViewDelegate)
     }
-    
-    public convenience init(urlString: String, theme: SwiftModalWebVCTheme, dismissButtonStyle: SwiftModalWebVCDismissButtonStyle) {
-        self.init(pageURL: URL(string: urlString)!, theme: theme, dismissButtonStyle: dismissButtonStyle)
-    }
-    
-    public convenience init(pageURL: URL) {
-        self.init(request: URLRequest(url: pageURL))
-    }
-    
-    public convenience init(pageURL: URL, theme: SwiftModalWebVCTheme, dismissButtonStyle: SwiftModalWebVCDismissButtonStyle) {
-        self.init(request: URLRequest(url: pageURL), theme: theme, dismissButtonStyle: dismissButtonStyle)
-    }
-    
-    public init(request: URLRequest, theme: SwiftModalWebVCTheme = .lightBlue, dismissButtonStyle: SwiftModalWebVCDismissButtonStyle = .arrow) {
-        let webViewController = SwiftWebVC(aRequest: request)
-        webView = webViewController.webView
-        webViewController.delegate = webViewDelegate
+    public init(request: URLRequest, webViewDelegate: SwiftWebVCDelegate?, theme: SwiftModalWebVCTheme = .lightBlue, dismissButtonStyle: SwiftModalWebVCDismissButtonStyle = .arrow) {
+        let webViewController = SwiftWebVC(request: request, delegate: webViewDelegate)
         
         webViewController.storedStatusColor = UINavigationBar.appearance().barStyle
         

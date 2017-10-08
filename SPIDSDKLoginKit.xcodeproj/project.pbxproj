@@ -10,9 +10,8 @@
 		9524B5F71F8948FD00CF745D /* ProvidersImageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524B5F61F8948FD00CF745D /* ProvidersImageDecoder.swift */; };
 		9524B5FA1F89643C00CF745D /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524B5F91F89643C00CF745D /* Alert.swift */; };
 		9524B5FC1F89661300CF745D /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524B5FB1F89661300CF745D /* L10n.swift */; };
-		9524B61F1F898B3900CF745D /* SwiftModalWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524B61D1F898B3800CF745D /* SwiftModalWebVC.swift */; };
-		9524B6201F898B3900CF745D /* SwiftWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524B61E1F898B3900CF745D /* SwiftWebVC.swift */; };
 		9524B6231F89929300CF745D /* SPIDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524B6221F89929300CF745D /* SPIDConstants.swift */; };
+		9524B6241F89E64000CF745D /* SwiftWebVC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9556F1741F8904900096EBC2 /* SwiftWebVC.framework */; };
 		9527091F1F8906F200A9F5E1 /* XLActionController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9556F1771F8904900096EBC2 /* XLActionController.framework */; };
 		952709221F8906F200A9F5E1 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9556F1751F8904900096EBC2 /* PKHUD.framework */; };
 		952709231F8906F200A9F5E1 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BE3F831F89065100B2616C /* AlamofireObjectMapper.framework */; };
@@ -61,8 +60,6 @@
 		9524B5F81F894BDE00CF745D /* SPIDImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SPIDImageCell.xib; sourceTree = "<group>"; };
 		9524B5F91F89643C00CF745D /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		9524B5FB1F89661300CF745D /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
-		9524B61D1F898B3800CF745D /* SwiftModalWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftModalWebVC.swift; sourceTree = "<group>"; };
-		9524B61E1F898B3900CF745D /* SwiftWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftWebVC.swift; sourceTree = "<group>"; };
 		9524B6221F89929300CF745D /* SPIDConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPIDConstants.swift; sourceTree = "<group>"; };
 		954AC8B81F8911C200CC40B0 /* SPIDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPIDService.swift; sourceTree = "<group>"; };
 		954AC8BA1F8911EE00CC40B0 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -103,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9524B6241F89E64000CF745D /* SwiftWebVC.framework in Frameworks */,
 				9527091F1F8906F200A9F5E1 /* XLActionController.framework in Frameworks */,
 				952709221F8906F200A9F5E1 /* PKHUD.framework in Frameworks */,
 				952709231F8906F200A9F5E1 /* AlamofireObjectMapper.framework in Frameworks */,
@@ -128,15 +126,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9524B6211F898CCF00CF745D /* SwiftWebVC */ = {
-			isa = PBXGroup;
-			children = (
-				9524B61D1F898B3800CF745D /* SwiftModalWebVC.swift */,
-				9524B61E1F898B3900CF745D /* SwiftWebVC.swift */,
-			);
-			path = SwiftWebVC;
-			sourceTree = "<group>";
-		};
 		954AC8B31F89117D00CC40B0 /* SPIDSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +143,6 @@
 		954AC8B41F8911C200CC40B0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9524B6211F898CCF00CF745D /* SwiftWebVC */,
 				954AC8D11F8931EA00CC40B0 /* SPIDActionController */,
 				954AC8BC1F89129800CC40B0 /* UISPIDButton.swift */,
 			);
@@ -463,6 +451,7 @@
 				"$(SRCROOT)/SPIDSDKLoginKit/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/SPIDSDKLoginKit/Carthage/Build/iOS/PKHUD.framework",
 				"$(SRCROOT)/SPIDSDKLoginKit/Carthage/Build/iOS/XLActionController.framework",
+				"$(SRCROOT)/SPIDSDKLoginKit/Carthage/Build/iOS/SwiftWebVC.framework",
 			);
 			outputPaths = (
 			);
@@ -478,9 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9524B5FC1F89661300CF745D /* L10n.swift in Sources */,
-				9524B61F1F898B3900CF745D /* SwiftModalWebVC.swift in Sources */,
 				9556F13B1F88DD130096EBC2 /* ViewController.swift in Sources */,
-				9524B6201F898B3900CF745D /* SwiftWebVC.swift in Sources */,
 				954AC8C21F89135300CC40B0 /* ProvidersResponse.swift in Sources */,
 				954AC8DE1F893DA900CC40B0 /* AuthSpidResponse.swift in Sources */,
 				954AC8CA1F892E8300CC40B0 /* Loading.swift in Sources */,
@@ -553,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -610,6 +598,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

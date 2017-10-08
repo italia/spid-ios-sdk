@@ -14,8 +14,9 @@ import Alamofire
 import XLActionController
 import SafariServices
 import WebKit
+import SwiftWebVC
 
-class SPIDOperation : NSObject, SwiftWebVCDelegate/*, SwiftWebVCDelegate, UIWebViewDelegate, WKNavigationDelegate*/  {
+class SPIDOperation : NSObject  {
     
     fileprivate var baseUrl: String
     fileprivate var baseVC: UIViewController?
@@ -109,7 +110,7 @@ class SPIDOperation : NSObject, SwiftWebVCDelegate/*, SwiftWebVCDelegate, UIWebV
 
     //MARK: Esegue l'apertura del browser per la visualizzazione dei vari link
     fileprivate func openBrowser(url: String) {
-        self.webVC = SwiftModalWebVC(urlString: url, webViewDelegate: self)
+        self.webVC = SwiftModalWebVC(urlString: url, webViewDelegate: self as? SwiftWebVCDelegate)
         self.baseVC?.present(webVC, animated: true, completion: nil)
     }
     //MARK:SwiftWebVCDelegate

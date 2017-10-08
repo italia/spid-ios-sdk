@@ -1,6 +1,6 @@
 github "Alamofire/Alamofire" "4.5.1"
 github "Hearst-DD/ObjectMapper" "3.0.0"
-github "mapo80/SwiftWebVC-Hackton" "7e7ae1a90cdce61d8de63fc739bbe2b10b0142c3"
+github "mapo80/SwiftWebVC2" "7e7ae1a90cdce61d8de63fc739bbe2b10b0142c3"
 github "pkluz/PKHUD" "5.0.0"
 github "tristanhimmelman/AlamofireObjectMapper" "5.0.0"
 github "xmartlabs/XLActionController" "3.0.1"

@@ -10,7 +10,7 @@ import WebKit
 
 public protocol SwiftWebVCDelegate: class {
     func didStartLoading()
-    func didFinishLoading(webView: WKWebView, success: Bool)
+    func didFinishLoading(url: String?, success: Bool)
 }
 
 public class SwiftWebVC: UIViewController {
@@ -20,6 +20,11 @@ public class SwiftWebVC: UIViewController {
     var buttonColor: UIColor? = nil
     var titleColor: UIColor? = nil
     var closing: Bool! = false
+    
+    convenience init(request: URLRequest, delegate: SwiftWebVCDelegate?){
+        self.init(aRequest: request)
+        self.delegate = delegate
+    }
     
     lazy var backBarButtonItem: UIBarButtonItem =  {
         var tempBackBarButtonItem = UIBarButtonItem(image: SwiftWebVC.bundledImage(named: "SwiftWebVCBack"),
@@ -66,7 +71,7 @@ public class SwiftWebVC: UIViewController {
     }()
     
     
-    public lazy var webView: WKWebView = {
+    lazy var webView: WKWebView = {
         var tempWebView = WKWebView(frame: UIScreen.main.bounds)
         tempWebView.uiDelegate = self
         tempWebView.navigationDelegate = self
@@ -127,7 +132,7 @@ public class SwiftWebVC: UIViewController {
         navBarTitle.backgroundColor = UIColor.clear
         if presentingViewController == nil {
             if let titleAttributes = navigationController!.navigationBar.titleTextAttributes {
-                navBarTitle.textColor = titleAttributes["NSColor"] as! UIColor
+                //navBarTitle.textColor = titleAttributes["NSColor"] as! UIColor
             }
         }
         else {
@@ -213,27 +218,27 @@ public class SwiftWebVC: UIViewController {
     
     ////////////////////////////////////////////////
     // Target Actions
-    
+    @objc
     func goBackTapped(_ sender: UIBarButtonItem) {
         webView.goBack()
     }
-    
+    @objc
     func goForwardTapped(_ sender: UIBarButtonItem) {
         webView.goForward()
     }
-    
+    @objc
     func reloadTapped(_ sender: UIBarButtonItem) {
         webView.reload()
     }
-    
+    @objc
     func stopTapped(_ sender: UIBarButtonItem) {
         webView.stopLoading()
         updateToolbarItems()
     }
-    
+    @objc
     func actionButtonTapped(_ sender: AnyObject) {
         
-        if let url: URL = ((webView.url != nil) ? webView.url : request.url) {
+        /*if let url: URL = ((webView.url != nil) ? webView.url : request.url) {
             let activities: NSArray = [SwiftWebVCActivitySafari(), SwiftWebVCActivityChrome()]
             
             if url.absoluteString.hasPrefix("file:///") {
@@ -251,11 +256,11 @@ public class SwiftWebVC: UIViewController {
                 
                 present(activityController, animated: true, completion: nil)
             }
-        }
+        }*/
     }
     
     ////////////////////////////////////////////////
-    
+    @objc
     func doneButtonTapped() {
         closing = true
         UINavigationBar.appearance().barStyle = storedStatusColor!
@@ -292,7 +297,7 @@ extension SwiftWebVC: WKNavigationDelegate {
     }
     
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.delegate?.didFinishLoading(webView: webView, success: true)
+        self.delegate?.didFinishLoading(url: webView.url?.relativeString, success: true)
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
         webView.evaluateJavaScript("document.title", completionHandler: {(response, error) in
@@ -300,11 +305,10 @@ extension SwiftWebVC: WKNavigationDelegate {
             self.navBarTitle.sizeToFit()
             self.updateToolbarItems()
         })
-        
     }
     
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        self.delegate?.didFinishLoading(webView: webView, success: false)
+        self.delegate?.didFinishLoading(url: webView.url?.relativeString, success: false)
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         updateToolbarItems()
     }
