@@ -16,7 +16,7 @@ Per la generazione degli enum corrispondenti alle immagine, stringhe localizzate
 Tutti i file della libreria sono contenuti nella directory SPIDSDK.
 Per la gestione del pulsante e sua configurazione è necessario utilizzare la classe UISPIDButton:
 
-![Configurazione Interface builder](https://github.com/mapo80/spid-ios-sdk-screenshot/blob/master/UISPIDButton.png?raw=true)
+![Configurazione Interface builder](https://image.ibb.co/dsgLiw/UISPIDButton.png)
 
 # Servizi REST
 L'app richiama due servizi REST:
@@ -45,6 +45,50 @@ Workflow applicazione:
 ![Webview con la pagina di login di PosteID](https://github.com/mapo80/spid-ios-sdk-screenshot/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%206%20-%202017-10-08%20at%2002.13.32.png?raw=true)
 
 ![Login eseguita con successo](https://github.com/mapo80/spid-ios-sdk-screenshot/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%206%20-%202017-10-08%20at%2002.14.07.png?raw=true)
+
+#Info implementazione
+
+L'sdk gestisce le chiamate verso la webview in POST. La funzionalità dovrà essere utilizzata per ottenere la pagina di login dell'identity provider.
+E' necessario utilizzare questo metodo:
+
+    fileprivate func openBrowser(url: String, body: String? = nil) 
+La funzione accetta in input l'url da visualizzare nel browser e il body da inviare al post:
+I dati da utilizzare sono restituiti dal REST /auth-spid. La risposta è:
+
+    {
+      "xmlAuthRequest": "Body da inviare al post",
+      "destinationUrl": "url Identidy Provider"
+    }
+
+L'sdk gestisce anche la risposta ottenuta dalla WebView. Il delegato da utilizzare è:
+
+    public protocol SwiftWebVCDelegate: class {
+        func didStartLoading()
+        func didFinishLoading(url: String?, body: String?, success: Bool)
+    }
+
+Per ottenere il json di risposta è necessario utilizzare la funzione didFinishLoading ed ottenere il body.
+La decodifica della risposta è stata eseguita in modalità mock, questi sono i dati restituiti:
+
+    {
+      "codiceFiscale": "string",
+      "codiceIdentificativo": "string",
+      "cognome": "string",
+      "dataNascita": "2017-10-08T07:16:48.527Z",
+      "dataScadenzaIdentita": "2017-10-08T07:16:48.527Z",
+      "documentoIdentita": "string",
+      "emailAddress": "string",
+      "emailPec": "string",
+      "indirizzoDomicilio": "string",
+      "indirizzoSedeLegale": "string",
+      "luogoNascita": "string",
+      "nome": "string",
+      "numeroTelefono": "string",
+      "partitaIva": "string",
+      "provinciaNascita": "string",
+      "ragioneSociale": "string",
+      "sesso": "string"
+    }
 
 # To do
 
