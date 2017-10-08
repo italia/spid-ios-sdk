@@ -36,7 +36,7 @@ Workflow applicazione:
 6) L'utente esegue la login con SPID (ora è configurato solo POSTE ID)
 7) Se le credenziali sono corrette appare il messaggio di successo e viene chiusa la UIWebView
 
-#Screenshot
+# Screenshot
 
 ![Pulsante SPID](https://github.com/mapo80/spid-ios-sdk-screenshot/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%206%20-%202017-10-08%20at%2002.13.24.png?raw=true)
 
@@ -46,7 +46,7 @@ Workflow applicazione:
 
 ![Login eseguita con successo](https://github.com/mapo80/spid-ios-sdk-screenshot/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%206%20-%202017-10-08%20at%2002.14.07.png?raw=true)
 
-#Info implementazione
+# Info implementazione
 
 L'sdk gestisce le chiamate verso la webview in POST. La funzionalità dovrà essere utilizzata per ottenere la pagina di login dell'identity provider.
 E' necessario utilizzare questo metodo:
