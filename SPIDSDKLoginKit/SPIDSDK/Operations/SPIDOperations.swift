@@ -73,7 +73,7 @@ class SPIDOperation : NSObject, SwiftWebVCDelegate  {
             
             Loading.hideLoading()
             
-            var res = String(format: "%@ %@", L10n.loginOkBody,response.result.value?.toJSON() ?? "");
+            let res = String(format: "%@ %@", L10n.loginOkBody,response.result.value?.toJSON() ?? "");
             
             self.webVC?.alert(message: res, title: L10n.loginOkTitle, okHandler: {
                 self.webVC.dismiss(animated: true, completion: nil)
