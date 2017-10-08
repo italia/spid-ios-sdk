@@ -19,7 +19,7 @@ class SPIDService {
     
     func getIdentityProviders(completionHandler: @escaping (DataResponse<ProvidersResponse>) -> Void, errorHandler: @escaping () -> Void) {
         
-        let URL = "/59d8e6020f00006d122a2483" //String(format:"%@%@", baseUrl, ServicesUrlConstants.ELENCO_PROVIDERS_PATH)
+        let URL = String(format:"%@%@", baseUrl, ServicesUrlConstants.ELENCO_PROVIDERS_MOCK_PATH)
         Alamofire.request(URL)
             .responseObject { (response: DataResponse<ProvidersResponse>) in
                 switch response.result {
@@ -34,7 +34,7 @@ class SPIDService {
     }
     
     func getAuthenticationSpid(entityId: String, completionHandler: @escaping (DataResponse<AuthSpeedResponse>) -> Void, errorHandler: @escaping () -> Void) {
-        let URL = "/59d95ff0100000a606caf130"//String(format:"%@%@?entityId=%@", baseUrl, ServicesUrlConstants.AUTH_SPID_PATH, entityId)
+        let URL = String(format:"%@%@?entityId=%@", baseUrl, ServicesUrlConstants.AUTH_SPID_MOCK_PATH, entityId)
         Alamofire
             .request(URL)
             .responseObject { (response: DataResponse<AuthSpeedResponse>) in
