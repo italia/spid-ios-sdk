@@ -39,15 +39,19 @@ Workflow applicazione:
 # Screenshot
 
 **Pulsante SPID**
+
 ![Pulsante SPID](https://github.com/mapo80/spid-ios-sdk-screenshot/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%206%20-%202017-10-08%20at%2002.13.24.png?raw=true)
 
 **Elenco degli Identity Providers**
+
 ![Elenco degli Identity Providers](https://github.com/mapo80/spid-ios-sdk-screenshot/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%206%20-%202017-10-08%20at%2002.13.26.png?raw=true)
 
 **Webview con la pagina di login di PosteID**
+
 ![Webview con la pagina di login di PosteID](https://github.com/mapo80/spid-ios-sdk-screenshot/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%206%20-%202017-10-08%20at%2002.13.32.png?raw=true)
 
 **Login eseguita con successo**
+
 ![Login eseguita con successo](https://github.com/mapo80/spid-ios-sdk-screenshot/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%206%20-%202017-10-08%20at%2002.14.07.png?raw=true)
 
 # Info implementazione
