@@ -1,6 +1,10 @@
 ----------
 # spid-ios
 SPID authentication library for iOS
+
+⚠️ Attenzione! Questo progetto non è più manutenuto dai suoi autori. Se vuoi contribuire al progetto e diventare maintainer contattaci sul [canale Slack](https://developersitalia.slack.com/archives/C7AAA10PN) dedicato.
+
+
 # Configurazione dell'applicazione
 
 Per la gestione delle dipendenze è stato utilizzato Carthage.
