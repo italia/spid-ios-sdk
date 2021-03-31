@@ -2,7 +2,7 @@
 # spid-ios
 SPID authentication library for iOS
 
-⚠️ Attenzione! Questo progetto non è più manutenuto dai suoi autori. Se vuoi contribuire al progetto e diventare maintainer contattaci sul [canale Slack](https://developersitalia.slack.com/archives/C73R3UQE8) dedicato.
+⚠️ Attenzione! Questo progetto non è più manutenuto dai suoi autori. Si consiglia di utilizzare [SPIDlibraryIOS di INPS](https://github.com/INPS-it/SPIDlibraryIOS).
 
 
 # Configurazione dell'applicazione
